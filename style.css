@@ -1,0 +1,70 @@
+.sun{
+    position: absolute;
+    width: 30vh;
+    height: 30vh;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0px 0px 25px 50px yellow;
+    transform: translate(-50%, -50%);
+}
+
+.planet{
+    position: absolute;
+    border-radius: 50%;
+}
+
+.mercury{
+    background-color: sienna;
+    width: 5vh;
+    height: 5vh;
+}
+.venus{
+    background-color: aqua;
+    width: 12vh;
+    height: 12vh;
+}
+.earth{
+    background-color: green;
+    width: 13vh;
+    height: 13vh;
+}
+.mars{
+    background-color: red;
+    width: 7vh;
+    height: 7vh;
+}
+.jupiter{
+    background-color: gray;
+    width: 36vh;
+    height: 36vh;
+}
+
+.star{
+    position: absolute;
+    background-color: white;
+    width: 0px;
+    height: 0px;
+    border: 1px solid white;
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px 1px white;
+}
+
+.mgla{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background-color: pink;
+    transform: rotate(75deg);
+    border: 1px solid transparent;
+}
+
+.hole{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background-color: black;
+    border: 1px solid transparent;
+}
+body{
+    background-color: #000010;
+}

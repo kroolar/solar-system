@@ -1,4 +1,41 @@
+class Planet{
+    constructor(reference, angle, speed, radius){
+        this.reference = reference;
+        this.angle = angle;
+        this.speed = speed;
+        this.radius = radius;
+    }
 
+
+    move = ()=> {
+        const x = Math.cos(this.angle * Math.PI/180) * this.radius;
+        const y = Math.sin(this.angle * Math.PI/180) * this.radius;
+        this.reference.style.left = `${x}vh`;
+        this.reference.style.top = `${y}vh`;
+        this.angle += this.speed;
+    }
+
+}
+
+
+const mercury = new Planet(document.querySelector('.mercury'), 0, 0.3, 20);
+const venus = new Planet(document.querySelector('.venus'), 30, 0.23, 40);
+const mars = new Planet(document.querySelector('.mars'),  20, 0.2,  60);
+const earth = new Planet(document.querySelector('.earth'), 50, 0.18, 80);
+const jupiter = new Planet(document.querySelector('.jupiter'), 50, 0.1, 120);
+
+
+const planetsMove = () => {
+    mercury.move();
+    venus.move();
+    mars.move();
+    earth.move();
+    jupiter.move();
+}
+
+setInterval(planetsMove, 10)
+
+/*
 let x;
 let y;
 let xMars;
@@ -39,7 +76,7 @@ const mercury = {
     angle : 20,
     speed : 0.8,
 }
-*/
+
 
 const abc = (planet) => {
     planet.x = Math.cos(planet.angle * Math.PI/180) * planet.radius;
@@ -63,7 +100,7 @@ const ruch = () => {
     abc(jupiter);
 }
 setInterval(ruch, 20);
-
+*/
 for(let i = 0; i < 200; i++){
     const star = document.createElement('div');
     star.classList = 'star';
@@ -77,6 +114,7 @@ for(let i = 0; i < 200; i++){
     star.style.boxShadow = `0px 0px ${rand}px ${rand2}px white`
 }
 
+/*
 for(let i = 0; i < 2; i++){
     const mgla = document.createElement('div');
     mgla.classList = 'mgla';
@@ -128,3 +166,4 @@ for(let i = 0; i < 2; i++){
     mgla.style.opacity = opac;
 }
 
+*/

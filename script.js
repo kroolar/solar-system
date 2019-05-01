@@ -19,10 +19,10 @@ class Planet{
 
 
 const mercury = new Planet(document.querySelector('.mercury'), 0, 0.3, 20);
-const venus = new Planet(document.querySelector('.venus'), 30, 0.23, 40);
-const mars = new Planet(document.querySelector('.mars'),  20, 0.2,  60);
-const earth = new Planet(document.querySelector('.earth'), 50, 0.18, 80);
-const jupiter = new Planet(document.querySelector('.jupiter'), 50, 0.1, 120);
+const venus = new Planet(document.querySelector('.venus'), 30, 0.23, 35);
+const mars = new Planet(document.querySelector('.mars'),  20, 0.2,  50);
+const earth = new Planet(document.querySelector('.earth'), 50, 0.18, 75);
+const jupiter = new Planet(document.querySelector('.jupiter'), 50, 0.1, 110);
 
 
 const planetsMove = () => {

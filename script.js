@@ -118,7 +118,6 @@ for(let i = 0; i < 50; i++){
                 this.rotate = -45;
                 break;
             }
-            console.log(this.direction);
             this.counter++;
             this.y++;
             this.initialComet();
@@ -156,6 +155,70 @@ const addComet = () => {
     comet.style.left = `${yRand}px`;
 }
 
+/*box-shadow: 100px 100px 70px 10px rgba(255, 0, 255),
+50px 100px 70px 10px rgba(255, 0, 255),
+100px 50px 75px 10px rgba(100, 100, 255),
+50px 50px 75px 10px rgba(100, 150, 255),
+50px 150px 80px 10px rgba(150, 200, 105), 
+150px 50px 70px 10px rgba(150, 250, 155),
+150px 150px 75px 10px rgba(200, 100, 205),
+110px 90px 90px 10px rgba(200, 170, 105);
+*/
+class Nebula{
+    constructor(quantity){
+        this.left;
+        this.top;
+        this.x = [];
+        this.y = [];
+        this.blur = [];
+        this.spread = 10;
+        this.red = [];
+        this.green = [];
+        this.blue = [];
+        this.string = "";
+        this.quantity = quantity;
+    }
+    random = (min, max) => Math.floor(Math.random()*(max-min) + min);
+    setLeft = () => this.left = this.random(90, 0);
+    setTop = () => this. top = this.random(90, 0);
+    setX = () => this.x.push(this.random(150, 50));
+    setY = () => this.y.push(this.random(150, 50));
+    setBlur = () => this.blur.push(this.random(90, 70));
+    setRed = () => this.red.push(this.random(255, 100));
+    setGreen = () => this.green.push(this.random(255, 100));
+    setBlue = () => this.blue.push(this.random(255, 100));
+    setString = () => {
+        for(let i = 0; i < this.quantity; i++){
+            this.string += `${this.x[i]}px ${this.y[i]}px ${this.blur[i]}px ${this.spread}px rgb(${this.red[i]}, ${this.green[i]}, ${this.blue[i]})`
+            if(i<this.quantity-1) this.string +=",";
+        }
+    }
+    createNebula = () => {
+        this.setLeft();
+        this.setTop();
+        const neb = document.querySelector('.nebula');
+        neb.style.left = `${this.left}vh`;
+        neb.style.top = `${this.top}vw`;
+    }
+    setBoxShadow = () => {
+        for(let i = 0; i < this.quantity; i++){
+            this.setX();
+            this.setY();
+            this.setBlur();
+            this.setRed();
+            this.setGreen();
+            this.setBlue();
+        }
+        this.setString();
+        const neb = document.querySelector('.nebula');
+        neb.style.boxShadow = this.string;
+    }
+
+}
+
+const nebula = new Nebula(10);
+nebula.createNebula();
+nebula.setBoxShadow();   
 //addComet();
 /*
 for(let i = 0; i < 2; i++){

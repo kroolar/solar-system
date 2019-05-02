@@ -35,73 +35,8 @@ const planetsMove = () => {
 
 setInterval(planetsMove, 10)
 
-/*
-let x;
-let y;
-let xMars;
-let yMars;
 
-function planet(reference, x, y, radius, angle, speed) {
-    this.reference = reference;
-    this.x = x;
-    this.y = y;
-    this.radius = radius;
-    this.angle = angle;
-    this.speed = speed;
-}
-
-/*const earth = {
-    reference : document.querySelector('.earth'),
-    x : 0,
-    y : 0,
-    radius : 40,
-    angle : 0,
-    speed : 1
-}
-
-const mars = {
-    reference : document.querySelector('.mars'),
-    x : 0,
-    y : 0,
-    radius : 50,
-    angle : 50,
-    speed : 1.2
-}
-
-const mercury = {
-    reference : document.querySelector('.mercury'),
-    x : 0,
-    y : 0,
-    radius : 20,
-    angle : 20,
-    speed : 0.8,
-}
-
-
-const abc = (planet) => {
-    planet.x = Math.cos(planet.angle * Math.PI/180) * planet.radius;
-    planet.y = Math.sin(planet.angle * Math.PI/180) * planet.radius;
-    planet.reference.style.top = planet.y + "vw";
-    planet.reference.style.left = planet.x + "vw";
-    planet.angle += planet.speed;
-}
-
-const mercury = new planet(document.querySelector('.mercury'), 0, 0, 18, -20, 0.47);
-const venus = new planet(document.querySelector('.venus'), 0, 0, 30, 0, 0.35);
-const earth = new planet(document.querySelector('.earth'), 0, 0, 45, 20, 0.30);
-const mars = new planet(document.querySelector('.mars'), 0, 0, 66, 10, 0.24);
-const jupiter = new planet(document.querySelector('.jupiter'), 0, 0, 90, 30, 0.13);
-
-const ruch = () => {
-    abc(mercury);
-    abc(venus);
-    abc(earth);
-    abc(mars);
-    abc(jupiter);
-}
-setInterval(ruch, 20);
-*/
-for(let i = 0; i < 200; i++){
+for(let i = 0; i < 50; i++){
     const star = document.createElement('div');
     star.classList = 'star';
     document.body.appendChild(star);
@@ -113,7 +48,115 @@ for(let i = 0; i < 200; i++){
     star.style.left = `${yRand}vw`;
     star.style.boxShadow = `0px 0px ${rand}px ${rand2}px white`
 }
+for(let i = 0; i < 50; i++){
+    const star = document.createElement('div');
+    star.classList = 'starsm';
+    document.body.appendChild(star);
+    const xRand = Math.floor(Math.random()*99);
+    const yRand = Math.floor(Math.random()*99);
+    const rand = Math.floor(Math.random()* 1);
+    const rand2 = Math.floor(Math.random()*1);
+    star.style.top = `${xRand}vh`;
+    star.style.left = `${yRand}vw`;
+    star.style.boxShadow = `0px 0px ${rand}px ${rand2}px white`
+}
+for(let i = 0; i < 50; i++){
+    const star = document.createElement('div');
+    star.classList = 'starsms';
+    document.body.appendChild(star);
+    const xRand = Math.floor(Math.random()*99);
+    const yRand = Math.floor(Math.random()*99);
+    const rand = Math.floor(Math.random()* 1);
+    const rand2 = Math.floor(Math.random()*1);
+    star.style.top = `${xRand}vh`;
+    star.style.left = `${yRand}vw`;
+    star.style.boxShadow = `0px 0px ${rand}px ${rand2}px white`
+}
 
+
+    class Comet{
+        constructor(reference, x, y){
+            this.x = x;
+            this.y = y;
+            this.reference = reference;
+            this.interval;
+            this.counter = 0;
+            this.direction;
+            this.rotate;
+        }
+        initialComet = () => {
+            this.reference.style.left = `${this.x}px`
+            this.reference.style.top = `${this.y}px`
+            this.reference.style.transform = `rotate(${this.rotate}deg)`
+        }
+        randomTrajectory = () => {
+            const rand = Math.random();
+            if(rand<0.24) this.direction = "left";
+            else if(rand>=0.24 && rand<0.5) this.direction = 'center-left';
+            else if(rand>=0.5 && rand<0.75) this.direction = 'center-right';
+            else if(rand>=0.75) this.direction = 'right';
+        }
+        setCometTrajectory = () => {
+            switch(this.direction){
+                case "left":
+                this.x--;
+                this.rotate = 45;
+                break;
+
+                case "center-left":
+                this.x-= 0.5;
+                this.rotate = 30;
+                break;
+
+                case "center-right":
+                this.x += 0.5;
+                this.rotate = -30;
+                break;
+
+                case "right":
+                this.x++;
+                this.rotate = -45;
+                break;
+            }
+            console.log(this.direction);
+            this.counter++;
+            this.y++;
+            this.initialComet();
+            if(this.counter == 800) this.clearInterval();
+        }
+
+        setInterval = () => {
+            this.randomTrajectory();
+            this.interval = setInterval(this.setCometTrajectory, 10);
+        }
+        clearInterval = () => {
+            this.counter = 0;
+            clearInterval(this.interval);
+            this.x = Math.floor(Math.random()*1000 + 100);
+            this.y = Math.floor(Math.random()*500 + 100);
+            this.initialComet();
+            this.setInterval();
+        }
+
+
+
+    }
+
+    const comet = new Comet(document.querySelector('.comet'), 200, 100);
+    comet.initialComet();
+    comet.setInterval();
+
+const addComet = () => {
+    Comet.x = Math.floor(Math.random()*99);
+    let cometY = Math.floor(Math.random()*99);
+   // let cometInterval = setInterval(setCometTrajectory, 10)
+    xRand++;
+    yRand++;
+    comet.style.top = `${xRand}px`;
+    comet.style.left = `${yRand}px`;
+}
+
+//addComet();
 /*
 for(let i = 0; i < 2; i++){
     const mgla = document.createElement('div');

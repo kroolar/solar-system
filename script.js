@@ -177,12 +177,13 @@ class Nebula{
         this.blue = [];
         this.string = "";
         this.quantity = quantity;
+        this.object;
     }
     random = (min, max) => Math.floor(Math.random()*(max-min) + min);
     setLeft = () => this.left = this.random(90, 0);
     setTop = () => this. top = this.random(90, 0);
-    setX = () => this.x.push(this.random(150, 50));
-    setY = () => this.y.push(this.random(150, 50));
+    setX = () => this.x.push(this.random(250, 50));
+    setY = () => this.y.push(this.random(250, 50));
     setBlur = () => this.blur.push(this.random(90, 70));
     setRed = () => this.red.push(this.random(255, 100));
     setGreen = () => this.green.push(this.random(255, 100));
@@ -196,9 +197,11 @@ class Nebula{
     createNebula = () => {
         this.setLeft();
         this.setTop();
-        const neb = document.querySelector('.nebula');
-        neb.style.left = `${this.left}vh`;
-        neb.style.top = `${this.top}vw`;
+        this.object = document.createElement('div');
+        this.object.classList = "nebula";
+        document.body.appendChild(this.object);
+        this.object.style.left = `${this.left}vw`;
+        this.object.style.top = `${this.top}vh`;
     }
     setBoxShadow = () => {
         for(let i = 0; i < this.quantity; i++){
@@ -210,15 +213,25 @@ class Nebula{
             this.setBlue();
         }
         this.setString();
-        const neb = document.querySelector('.nebula');
-        neb.style.boxShadow = this.string;
+        this.object.style.boxShadow = this.string;
     }
 
 }
 
+//const nebulaList = [];
+for(let i = 0; i < 10; i++){
 const nebula = new Nebula(10);
+//nebulaList.push(nebula);
 nebula.createNebula();
-nebula.setBoxShadow();   
+nebula.setBoxShadow(); 
+}
+
+const bigDipper = document.querySelector(".big-dipper");
+bigDipper.style.marginLeft = `${Math.floor(Math.random()*70 + 20)}%`;
+bigDipper.style.marginTop = `${Math.floor(Math.random()*70 + 20)}vh`;
+
+
+ 
 //addComet();
 /*
 for(let i = 0; i < 2; i++){

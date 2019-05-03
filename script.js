@@ -4,25 +4,36 @@ class Planet{
         this.angle = angle;
         this.speed = speed;
         this.radius = radius;
+        this.x;
+        this.y;
     }
 
+    moonMove = (planet) => {
+        this.x = Math.cos(this.angle * Math.PI/180) * this.radius;
+        this.y = Math.sin(this.angle * Math.PI/180) * this.radius;
+        this.reference.style.left = `${(planet.x-30) + this.x}vh`;
+        this.reference.style.top = `${planet.y + this.y}vh`;
+        moon.angle += moon.speed;
+    }
 
     move = ()=> {
-        const x = Math.cos(this.angle * Math.PI/180) * this.radius;
-        const y = Math.sin(this.angle * Math.PI/180) * this.radius;
-        this.reference.style.left = `${x}vh`;
-        this.reference.style.top = `${y}vh`;
+        this.x = Math.cos(this.angle * Math.PI/180) * this.radius;
+        this.y = Math.sin(this.angle * Math.PI/180) * this.radius;
+        this.reference.style.left = `${this.x-30}vh`;
+        this.reference.style.top = `${this.y}vh`;
         this.angle += this.speed;
     }
 
 }
 
 
-const mercury = new Planet(document.querySelector('.mercury'), 0, 0.3, 20);
-const venus = new Planet(document.querySelector('.venus'), 30, 0.23, 35);
-const mars = new Planet(document.querySelector('.mars'),  20, 0.2,  50);
-const earth = new Planet(document.querySelector('.earth'), 50, 0.18, 75);
-const jupiter = new Planet(document.querySelector('.jupiter'), 50, 0.1, 110);
+const mercury = new Planet(document.querySelector('.mercury'), 0, 0.3, 60);
+const venus = new Planet(document.querySelector('.venus'), 30, 0.23, 90);
+const mars = new Planet(document.querySelector('.mars'),  20, 0.2,  110);
+const earth = new Planet(document.querySelector('.earth'), 0, 0.1, 140);
+const jupiter = new Planet(document.querySelector('.jupiter'), 50, 0.1, 150);
+const moon = new Planet(document.querySelector('.moon'), 0, 1, 10);
+
 
 
 const planetsMove = () => {
@@ -31,6 +42,8 @@ const planetsMove = () => {
     mars.move();
     earth.move();
     jupiter.move();
+    moon.moonMove(earth);
+
 }
 
 setInterval(planetsMove, 10)

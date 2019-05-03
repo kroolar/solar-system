@@ -27,6 +27,7 @@ class Planet{
 }
 
 
+if (window.outerWidth > 800){
 const mercury = new Planet(document.querySelector('.mercury'), 0, 0.3, 60);
 const venus = new Planet(document.querySelector('.venus'), 30, 0.23, 90);
 const mars = new Planet(document.querySelector('.mars'),  20, 0.2,  110);
@@ -48,6 +49,7 @@ const planetsMove = () => {
 
 setInterval(planetsMove, 10)
 
+}
 
 for(let i = 0; i < 50; i++){
     const star = document.createElement('div');
@@ -243,59 +245,16 @@ const bigDipper = document.querySelector(".big-dipper");
 bigDipper.style.marginLeft = `${Math.floor(Math.random()*70 + 20)}%`;
 bigDipper.style.marginTop = `${Math.floor(Math.random()*70 + 20)}vh`;
 
-
- 
-//addComet();
-/*
-for(let i = 0; i < 2; i++){
-    const mgla = document.createElement('div');
-    mgla.classList = 'mgla';
-    document.body.appendChild(mgla);
-    const xRand = Math.floor(Math.random()*80);
-    const yRand = Math.floor(Math.random()*80);
-
-    const br1 = Math.floor(Math.random()* 50);
-    const br2 = Math.floor(Math.random()* 50);
-
-    const rotate = Math.floor(Math.random()* 180);
-
-    const bs1 = Math.floor(Math.random()* 0);
-    const bs2 = Math.floor(Math.random()* 0);
-    const bs3 = Math.floor(Math.random()* 100 + 100);
-    const bs4 = Math.floor(Math.random()* 50 + 200);
-    const bsr = Math.floor(Math.random()* 100 + 155);
-    const bsg = Math.floor(Math.random()* 0);
-    const bsb = Math.floor(Math.random()* 100 + 155);
-    const opac = (Math.floor(Math.random()* 1 + 20))/100;
-
-    const bs1_1 = Math.floor(Math.random()* 0);
-    const bs2_1 = Math.floor(Math.random()* 200);
-    const bs3_1 = Math.floor(Math.random()* 100 + 100);
-    const bs4_1 = Math.floor(Math.random()* 100 + 150);
-    const bsr_1 = Math.floor(Math.random()* 100 + 155);
-    const bsg_1 = Math.floor(Math.random()* 100 + 155);
-    const bsb_1 = Math.floor(Math.random()* 100 + 155);
-    const opac_1 = (Math.floor(Math.random()* 1 + 30))/100;
-
-    const bs1_2 = Math.floor(Math.random()* 200);
-    const bs2_2 = Math.floor(Math.random()* 0);
-    const bs3_2 = Math.floor(Math.random()* 100 + 100);
-    const bs4_2 = Math.floor(Math.random()* 100 + 100);
-    const bsr_2 = Math.floor(Math.random()* 200 + 55);
-    const bsg_2 = Math.floor(Math.random()* 200 + 55);
-    const bsb_2 = Math.floor(Math.random()* 200 + 55);
-    const opac_2 = (Math.floor(Math.random()* 1 + 30))/100;
-
-
-    mgla.style.top = `${xRand}vh`;
-    mgla.style.left = `${yRand}vw`;
-    mgla.style.borderRadius = `${br1}% ${br2}%`;
-    mgla.style.transform = `rotate(${rotate}deg)`;
-    
-    mgla.style.boxShadow = `${bs1}px ${bs2}px ${bs3}px ${bs4}px rgba(${bsr} ${bsg} ${bsb}), 
-    ${bs1_1}px ${bs2_1}px ${bs3_1}px ${bs4_1}px rgba(${bsr_1} ${bsg_1} ${bsb_1}),
-    ${bs1_2}px ${bs2_2}px ${bs3_2}px ${bs4_2}px rgba(${bsr_2} ${bsg_2} ${bsb_2}) `;
-    mgla.style.opacity = opac;
+const abc = document.querySelector('.starrs');
+for(let i = 0; i < 50; i++){
+    const star = document.createElement('div');
+    star.classList = 'asd';
+    abc.appendChild(star);
+    const xRand = Math.floor(Math.random()*99);
+    const yRand = Math.floor(Math.random()*99);
+    const rand = Math.floor(Math.random()* 7 + 3);
+    const rand2 = Math.floor(Math.random()*2);
+    star.style.top = `${xRand}vh`;
+    star.style.left = `${yRand}vw`;
+    star.style.boxShadow = `0px 0px ${rand}px ${rand2}px white`
 }
-
-*/

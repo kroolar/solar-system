@@ -28,12 +28,14 @@ body{
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    /*animation: rotate 1000ms linear infinite */
 }
 
 .mercury{
-    background-color: sienna;
+    background-image: url(neptune.svg);
     width: 5vh;
     height: 5vh;
+    animation: rotate 4s linear infinite
 }
 .venus{
     background-color: aqua;
@@ -46,9 +48,19 @@ body{
     height: 13vh;
 }
 .mars{
-    background-color: red;
+    background-image: url("mars.svg");
     width: 7vh;
     height: 7vh;
+    animation: rotate 7s linear infinite
+}
+
+@keyframes rotate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg)
+    }
 }
 .jupiter{
     background-color: gray;
@@ -93,7 +105,6 @@ body{
     border-radius: 0 0 2px 0;
     box-shadow: 0 0 4px 1px rgba(255, 255, 200, 0.3);
     transform: rotate(30deg);
-
 }
 
 .nebula{
@@ -150,11 +161,13 @@ body{
 }
 
 .moon{
+    background-image: url(moon.svg);
     position: fixed;
-    width: 10px;
-    height: 10px;
+    width: 30px;
+    height: 30px;
     background-color: gray;
     z-index: 10;
+    animation: rotate 5s linear infinite reverse
 }
 
 
@@ -187,7 +200,6 @@ body{
 .constellation-bg{
     animation: anime 4000s linear infinite;
 }
-
 
 @keyframes anime{
     0%{

@@ -12,6 +12,7 @@ body{
     background-color: rgba(0, 0, 0, 0.85);
 }
 
+/* Słońce */
 .sun{
     position: absolute;
     width: 100vh;
@@ -23,30 +24,37 @@ body{
     transform: translate(-50%, -50%);
 }
 
+/* Planety */
 .planet{
     position: fixed;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    /*animation: rotate 1000ms linear infinite */
 }
 
+/* Merkury */
 .mercury{
     background-image: url(neptune.svg);
     width: 5vh;
     height: 5vh;
     animation: rotate 4s linear infinite
 }
+
+/* Wenus */
 .venus{
     background-color: aqua;
     width: 12vh;
     height: 12vh;
 }
+
+/* Ziemia */
 .earth{
     background-color: green;
     width: 13vh;
     height: 13vh;
 }
+
+/* Mars */
 .mars{
     background-image: url("mars.svg");
     width: 7vh;
@@ -54,6 +62,7 @@ body{
     animation: rotate 7s linear infinite
 }
 
+/* Animacja obrotu planety */
 @keyframes rotate{
     from{
         transform: rotate(0deg);
@@ -62,12 +71,15 @@ body{
         transform: rotate(360deg)
     }
 }
+
+/* Jowisz */
 .jupiter{
     background-color: gray;
     width: 20vh;
     height: 20vh;
 }
 
+/* Gwiazda */
 .star{
     position: absolute;
     background-color: white;
@@ -78,7 +90,7 @@ body{
     box-shadow: white;
 }
 
-
+/* Mgła */
 .mgla{
     position: absolute;
     width: 1px;
@@ -88,6 +100,7 @@ body{
     border: 1px solid transparent;
 }
 
+/* Czarna dziura
 .hole{
     position: absolute;
     width: 1px;
@@ -95,7 +108,9 @@ body{
     background-color: black;
     border: 1px solid transparent;
 }
+*/
 
+/* Kometa */
 .comet{
     position: fixed;
     z-index: 1000;
@@ -107,6 +122,7 @@ body{
     transform: rotate(30deg);
 }
 
+/* Mgławica */
 .nebula{
     position: fixed;
     width: 10px;
@@ -114,12 +130,15 @@ body{
     z-index: 0;
 }
 
+/* Wielki wóz */
 .big-dipper{
     width: 300px;
     height: 300px;
     margin-left: 30%;
     margin-top: 50vh;
 }
+
+/* Kontener dużego wozu */
 .big-dipper div{
     position: relative;
     display: inline-block;
@@ -130,11 +149,12 @@ body{
     box-shadow: 0 0 5px 2px rgba(200, 200, 100, 0.5);
     
 }
+
+/* Kolejne gwiazdy dużego wozu */
 .big-dipper div:nth-child(1){
     left: 10px;
     top: 10px;
 }
-
 .big-dipper div:nth-child(2){
     top: 13px;
     left: 40px;
@@ -160,6 +180,7 @@ body{
     left: 65px;
 }
 
+/* Księżyc */
 .moon{
     background-image: url(moon.svg);
     position: fixed;
@@ -170,8 +191,7 @@ body{
     animation: rotate 5s linear infinite reverse
 }
 
-
-
+/* Nie wiem co to */
 .asd{
     position: fixed;
     width: 0;
@@ -181,6 +201,7 @@ body{
     background-color: white;
 }
 
+/* Konstelacja gwiazd*/
 .constellation{
     position: absolute;
     width: 300vh;
@@ -189,18 +210,21 @@ body{
     top: -30vh;
 }
 
+/* Mała konstelacja gwiazd */
 .constellation-sm{
     animation: anime 1000s linear infinite alternate;
 }
 
+/* Średnia konstelacja gwiazd */
 .constellation-md{
     animation: anime 2000s linear infinite alternate-reverse;
 }
-
+/* Wielka konstelacja gwiazd */
 .constellation-bg{
     animation: anime 4000s linear infinite;
 }
 
+/* Animacja konstelacji gwiazd */
 @keyframes anime{
     0%{
         transform: rotate(0deg);

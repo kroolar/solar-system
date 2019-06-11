@@ -1,3 +1,4 @@
+// Gwiazdy
 class Stars extends SpaceObject{
     constructor(reference, quantity, size){
         super(reference);
@@ -9,6 +10,7 @@ class Stars extends SpaceObject{
         this.size = size;
     }
 
+    // Losowanie pozycji gwiazdy
     randomPosition = () => {
         for(let i = 0; i < this.quantity; i++){
             this.x[i] = Math.floor(Math.random()*290);
@@ -16,6 +18,7 @@ class Stars extends SpaceObject{
         }
     }
 
+    // Losowanie wyglądu gwiazdy
     randomBoxShadow = () => {
         for(let i = 0; i < this.quantity; i++){
             if(this.size === "small"){
@@ -34,6 +37,7 @@ class Stars extends SpaceObject{
         }
     }
 
+    // Tworzenie nowej gwiazdy
     createNewStar = () => {
         this.randomPosition();
         this.randomBoxShadow();

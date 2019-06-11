@@ -1,3 +1,4 @@
+// Klasa planet
 class Planet extends SpaceObject{
     constructor(reference, angle, speed, radius){
         super(reference)
@@ -7,6 +8,7 @@ class Planet extends SpaceObject{
         this.radius = radius;
     }
 
+    // Ruch księżyca
     moonMove = (planet) => {
         this.x = Math.cos(this.angle * Math.PI/180) * this.radius;
         this.y = Math.sin(this.angle * Math.PI/180) * this.radius;
@@ -15,6 +17,7 @@ class Planet extends SpaceObject{
         this.angle += this.speed;
     }
 
+    // Ruch planety
     move = ()=> {
         this.x = Math.cos(this.angle * Math.PI/180) * this.radius;
         this.y = Math.sin(this.angle * Math.PI/180) * this.radius;

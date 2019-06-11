@@ -1,3 +1,4 @@
+// Kometa
 class Comet extends SpaceObject{
     constructor(reference){
         super(reference)
@@ -7,12 +8,14 @@ class Comet extends SpaceObject{
         this.rotate;
     }
 
+    // Ustawienie początkowej pozycji komety oraz kierunku jej lotu
     initialComet = () => {
         this.reference.style.left = `${this.x}px`
         this.reference.style.top = `${this.y}px`
         this.reference.style.transform = `rotate(${this.rotate}deg)`
     }
 
+    // Losowanie trajektorii lotu
     randomTrajectory = () => {
         const rand = Math.random();
         if(rand<0.24) this.direction = "left";
@@ -21,6 +24,7 @@ class Comet extends SpaceObject{
         else if(rand>=0.75) this.direction = 'right';
     }
 
+    // Ustawienie trajektorii lotu gwiazdy
     setCometTrajectory = () => {
         switch(this.direction){
             case "left":
@@ -49,11 +53,13 @@ class Comet extends SpaceObject{
         if(this.counter == 400) this.clearInterval();
     }
 
+    // Ustawienie interwału lotu
     setInterval = () => {
         this.randomTrajectory();
         this.interval = setInterval(this.setCometTrajectory, 10);
     }
     
+    // Czyszczenie interwału lotu
     clearInterval = () => {
         this.counter = 0;
         clearInterval(this.interval);
